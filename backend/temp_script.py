@@ -1,30 +1,24 @@
 import os
-import time
 
-class DataProcessor:
-    def __init__(self, data):
-        self.data = data
-        self.results = []
+def greet(name):
+    print("Hello " + name) # Missing proper string formatting
 
-    def process_data(self):
-        for item in self.data:
-            time.sleep(0.5)  # Inefficient delay
-            if item % 2 == 0:
-                self.results.append(item * 2)
-            else:
-                self.results.append(item + 1)
-        
-    def save_results(self):
-        file = open("results.txt", "w")  # File not closed properly
-        for result in self.results:
-            file.write(str(result) + "\n")
-        
-    def print_results(self):
-        for i in range(len(self.results)):  # Inefficient iteration
-            print("Result:", self.results[i])
+def add_numbers(a, b):
+    return a + b  # No type hints
 
-data = [1, 2, 3, 4, 5]
-processor = DataProcessor(data)
-processor.process_data()
-processor.save_results()
-processor.print_results()
+def divide(a, b):
+    if b == 0:
+        print("Error: Cannot divide by zero")  # Should raise an exception
+        return None
+    return a / b
+
+class Sample:
+    def __init__(self, value):
+        self.value = value # Missing type hint
+
+    def get_value(self):
+        return self.value
+
+print(greet("Alice"))
+print(add_numbers(5, 3))
+print(divide(10, 0))
