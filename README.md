@@ -1,6 +1,7 @@
 # 🚀 AI-Driven Code Reviewer
 
-This project is an **AI-powered code reviewer** that analyzes, detects issues, and suggests improvements for Python and other programming languages. The backend is built with **FastAPI** and integrates OpenAI's API, while the frontend is a **React-based UI** for submitting and displaying reviewed code.
+This project is a Python-specific AI-powered code reviewer that analyzes code, detects issues, and returns a fixed version of the code. The backend is built with **FastAPI** and integrates **OpenAI's API**, while the frontend is a **React-based UI** for submitting and displaying the corrected code.
+
 
 ---
 
@@ -71,7 +72,7 @@ The frontend will now be running at http://localhost:3000.
 ---
 
 ## ✅ Features
-- 🧠 AI-Powered Code Review (Detects issues, suggests improvements)
+- 🧠 AI-Powered Code Review (Detects issues)
 - ⚡ FastAPI Backend (Handles requests efficiently)
 - 🎨 React UI (User-friendly interface to submit and view results)
 - 🔒 Secure & Configurable (Uses `.env` for API key management)
