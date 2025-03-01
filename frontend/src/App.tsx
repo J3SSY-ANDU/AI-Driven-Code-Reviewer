@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import ReactMarkdown from "react-markdown";
 import CircularProgress from "@mui/material/CircularProgress";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import CheckIcon from "@mui/icons-material/Check";
 
 const App = () => {
   const [userCode, setUserCode] = useState("");
@@ -11,6 +13,7 @@ const App = () => {
 
   const handleSubmit = async () => {
     setLoading(true);
+    setFixedCode("");
     try {
       const response = await axios.post("http://127.0.0.1:8000/analyze", {
         code: userCode,
@@ -86,15 +89,18 @@ const App = () => {
                 borderRadius: "4px",
               }}
             >
-              Copy
+              {copySuccess ? (
+                <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
+                  <CheckIcon sx={{ fontSize: "1rem" }} />
+                  <p style={{ lineHeight: "0" }}>Copied</p>
+                </div>
+              ) : (
+                <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
+                  <ContentCopyIcon sx={{ fontSize: "1rem" }} />
+                  <p style={{ lineHeight: "0" }}>Copy</p>
+                </div>
+              )}
             </button>
-            {copySuccess && (
-              <span
-                style={{ fontSize: "12px", color: "green", marginLeft: "10px" }}
-              >
-                {copySuccess}
-              </span>
-            )}
           </div>
         </div>
       )}
